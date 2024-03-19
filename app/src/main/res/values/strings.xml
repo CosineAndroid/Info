@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Info</string>
+    <string name="password_hint">비밀번호를 입력하세요.</string>
+    <string name="password_title">비밀번호</string>
+    <string name="id_hint">아이디를 입력하세요.</string>
+    <string name="id_title">아이디</string>
+    <string name="login_title">로그인</string>
+    <string name="sign_up_title">회원가입</string>
+    <string name="name_title">이름</string>
+    <string name="name_hint">이름을 입력하세요.</string>
+    <string name="age_title">나이</string>
+    <string name="mbti_title">MBTI</string>
+</resources>

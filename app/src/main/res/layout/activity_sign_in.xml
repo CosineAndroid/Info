@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SignInActivity">
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/logo"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="80dp"
+        app:srcCompat="@mipmap/ic_launcher_round"
+        app:shapeAppearanceOverlay="@style/Circle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+    </com.google.android.material.imageview.ShapeableImageView>
+
+    <include
+        layout="@layout/id_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        app:layout_constraintHorizontal_bias="0.487"
+        app:layout_constraintTop_toBottomOf="@+id/logo" />
+
+    <include
+        layout="@layout/password_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        app:layout_constraintHorizontal_bias="0.074"
+        app:layout_constraintTop_toBottomOf="@+id/id_group" />
+
+    <Button
+        android:id="@+id/login_button"
+        style="@style/Button"
+        android:text="@string/login_title"
+        android:layout_marginTop="40dp"
+        android:onClick="login"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/password_group" />
+
+    <Button
+        android:id="@+id/sign_up_button"
+        style="@style/Button"
+        android:text="@string/sign_up_title"
+        android:layout_marginTop="20dp"
+        android:onClick="showSignUpActivity"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/login_button" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
