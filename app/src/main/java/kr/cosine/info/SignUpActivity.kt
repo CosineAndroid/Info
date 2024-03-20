@@ -40,7 +40,7 @@ class SignUpActivity : AppCompatActivity() {
                 passwordInput.getInput(this) getPasswordInput@ { password ->
                     val account = Account(name, id, password)
                     AccountRegistry.addAccount(account)
-                    showToast("회원가입이 완료되었습니다!")
+                    showToast("회원가입이 완료되었습니다")
                     val intent = Intent(this, SignInActivity::class.java).apply {
                         putExtra("id", id)
                         putExtra("password", password)
