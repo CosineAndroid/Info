@@ -40,6 +40,7 @@ class SignInActivity : AppCompatActivity() {
                     showToast("존재하지 않는 계정입니다.")
                     return@passwordInput
                 }
+                showToast("로그인 성공")
                 val intent = Intent(this, HomeActivity::class.java).apply {
                     putExtra("id", id)
                     putExtra("name", account.name)
