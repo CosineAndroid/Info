@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
 import kr.cosine.info.data.Account
 import kr.cosine.info.data.Code
 import kr.cosine.info.extension.getConstraintLayout
@@ -18,10 +19,15 @@ class SignUpActivity : AppCompatActivity() {
     private lateinit var idInput: EditText
     private lateinit var passwordInput: EditText
 
+    private val viewModel: SignUpViewModel by lazy {
+        ViewModelProvider(this)[SignUpViewModel::class.java]
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_up)
         init()
+        initViewModelEvent()
     }
 
     private fun init() {
@@ -33,22 +39,29 @@ class SignUpActivity : AppCompatActivity() {
     fun signUp(view: View) {
         nameInput.getInput(this) getNameInput@ { name ->
             idInput.getInput(this) getIdInput@ { id ->
-                if (AccountRegistry.isAccount(id)) {
-                    showToast("이미 존재하는 아이디입니다.")
-                    return@getIdInput
-                }
                 passwordInput.getInput(this) getPasswordInput@ { password ->
                     val account = Account(name, id, password)
-                    AccountRegistry.addAccount(account)
-                    showToast("회원가입이 완료되었습니다")
-                    val intent = Intent(this, SignInActivity::class.java).apply {
-                        putExtra("id", id)
-                        putExtra("password", password)
-                    }
-                    setResult(Code.RESULT_CODE, intent)
-                    finish()
+                    viewModel.setAccount(account)
                 }
             }
+        }
+    }
+
+    private fun initViewModelEvent() {
+        viewModel.accountEvent.observe(this) { account ->
+            val id = account.id
+            if (AccountRegistry.isAccount(id)) {
+                showToast("이미 존재하는 아이디입니다.")
+                return@observe
+            }
+            AccountRegistry.addAccount(account)
+            showToast(account.toString())
+            val intent = Intent(this, SignInActivity::class.java).apply {
+                putExtra("id", id)
+                putExtra("password", account.password)
+            }
+            setResult(Code.RESULT_CODE, intent)
+            finish()
         }
     }
 }
