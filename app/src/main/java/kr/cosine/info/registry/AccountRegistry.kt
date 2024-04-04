@@ -6,15 +6,15 @@ object AccountRegistry {
 
     private val accounts = mutableListOf<Account>()
 
-    fun isAccount(id: String): Boolean {
-        return accounts.any { it.id == id }
+    fun isAccount(email: String): Boolean {
+        return accounts.any { it.email == email }
     }
 
     fun addAccount(account: Account) {
         accounts.add(account)
     }
 
-    fun findAccount(id: String, password: String): Account? {
-        return accounts.find { it.id == id && it.password == password }
+    fun findAccount(email: String, password: String): Account? {
+        return accounts.find { it.email == email && it.password == password }
     }
 }

@@ -19,18 +19,20 @@
     </com.google.android.material.imageview.ShapeableImageView>
 
     <include
-        layout="@layout/id_group"
+        android:id="@+id/email_group"
+        layout="@layout/email_group"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         app:layout_constraintTop_toBottomOf="@+id/logo" />
 
     <include
+        android:id="@+id/password_group"
         layout="@layout/password_group"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
-        app:layout_constraintTop_toBottomOf="@+id/id_group" />
+        app:layout_constraintTop_toBottomOf="@+id/email_group" />
 
     <Button
         android:id="@+id/login_button"

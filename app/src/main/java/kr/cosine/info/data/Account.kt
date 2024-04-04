@@ -1,12 +1,12 @@
 package kr.cosine.info.data
 
-data class Account(
-    val name: String,
-    val id: String,
-    val password: String
-) {
+import java.io.Serializable
 
-    override fun toString(): String {
-        return "$name, $id, $password"
-    }
+class Account(
+    val name: String,
+    val email: String,
+    val password: String
+) : Serializable {
+
+    override fun toString(): String = "$name, $email, $password"
 }

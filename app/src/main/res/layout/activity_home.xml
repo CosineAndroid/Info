@@ -18,27 +18,27 @@
         app:srcCompat="@drawable/stephen_curry" />
     <!--    아이디    -->
     <TextView
-        android:id="@+id/info_id_title"
+        android:id="@+id/info_emil_title"
         style="@style/InfoTitle"
-        android:text="@string/id_title"
+        android:text="@string/email_title"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/profile_image" />
     <TextView
-        android:id="@+id/info_id_description"
+        android:id="@+id/info_email_description"
         style="@style/InfoDescription"
         android:text="id"
-        app:layout_constraintEnd_toEndOf="@+id/info_id_title"
-        app:layout_constraintStart_toStartOf="@+id/info_id_title"
-        app:layout_constraintTop_toBottomOf="@+id/info_id_title" />
+        app:layout_constraintEnd_toEndOf="@+id/info_emil_title"
+        app:layout_constraintStart_toStartOf="@+id/info_emil_title"
+        app:layout_constraintTop_toBottomOf="@+id/info_emil_title" />
     <!--    이름    -->
     <TextView
         android:id="@+id/info_name_title"
         style="@style/InfoTitle"
         android:text="@string/name_title"
-        app:layout_constraintEnd_toEndOf="@+id/info_id_description"
-        app:layout_constraintStart_toStartOf="@+id/info_id_description"
-        app:layout_constraintTop_toBottomOf="@+id/info_id_description" />
+        app:layout_constraintEnd_toEndOf="@+id/info_email_description"
+        app:layout_constraintStart_toStartOf="@+id/info_email_description"
+        app:layout_constraintTop_toBottomOf="@+id/info_email_description" />
     <TextView
         android:id="@+id/info_name_description"
         style="@style/InfoDescription"

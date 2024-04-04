@@ -3,8 +3,10 @@ package kr.cosine.info
 import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import kr.cosine.info.data.Account
+import kr.cosine.info.databinding.ActivityHomeBinding
+import kr.cosine.info.intent.IntentKey
 
 class HomeActivity : AppCompatActivity() {
 
@@ -18,21 +20,19 @@ class HomeActivity : AppCompatActivity() {
         )
     }
 
+    private val binding by lazy { ActivityHomeBinding.inflate(layoutInflater) }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_home)
+        setContentView(binding.root)
         init()
     }
 
-    private fun init() {
+    private fun init() = with(binding) {
         findViewById<ImageView>(R.id.profile_image).setImageResource(images.random())
-        setText(R.id.info_id_description, "id")
-        setText(R.id.info_name_description, "name")
-    }
-
-    private fun setText(id: Int, key: String) {
-        val value = intent.getStringExtra(key)
-        findViewById<TextView>(id).text = value
+        val account = intent.getSerializableExtra(IntentKey.ACCOUNT) as Account
+        infoEmailDescription.text = account.email
+        infoNameDescription.text = account.name
     }
 
     fun stop(view: View) {

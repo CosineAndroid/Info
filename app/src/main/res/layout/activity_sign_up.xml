@@ -6,37 +6,37 @@
     android:layout_height="match_parent"
     tools:context=".SignUpActivity">
 
-    <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/logo"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_marginTop="50dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:shapeAppearanceOverlay="@style/Circle"
-        app:srcCompat="@mipmap/ic_launcher_round">
-    </com.google.android.material.imageview.ShapeableImageView>
-
     <include
-        layout="@layout/name_group"
+        android:id="@+id/name_group"
+        layout="@layout/input_group"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/logo" />
+        android:layout_marginTop="30dp"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <include
-        layout="@layout/id_group"
+        android:id="@+id/email_group"
+        layout="@layout/input_group"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         app:layout_constraintTop_toBottomOf="@+id/name_group" />
 
     <include
-        layout="@layout/password_group"
+        android:id="@+id/password_group"
+        layout="@layout/input_group"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        app:layout_constraintTop_toBottomOf="@+id/id_group" />
+        app:layout_constraintTop_toBottomOf="@+id/email_group" />
+
+    <include
+        android:id="@+id/password_confirm_group"
+        layout="@layout/input_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        app:layout_constraintTop_toBottomOf="@+id/password_group" />
 
     <Button
         android:id="@+id/sign_up_button"
@@ -46,6 +46,6 @@
         android:text="@string/sign_up_title"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/password_group" />
+        app:layout_constraintTop_toBottomOf="@+id/password_confirm_group" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
